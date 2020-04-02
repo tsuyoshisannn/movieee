@@ -65,6 +65,7 @@ if(!empty($_POST)){
             debug('クエリ結果の中身：'.print_r($result,true));
 
             // パスワード照合
+            // password_verify — パスワードがハッシュにマッチするかどうかを調べる
             if(!empty($result) && password_verify($pass, array_shift($result))){
                 debug('パスワードがマッチしました。');
 
@@ -155,7 +156,6 @@ require('head.php');
               <div class="btn-container">
                   <input type="submit" class="btn btn-mid" value="ログイン">
               </div>
-              パスワードを忘れた方は<a href="passRemindSend.php">コチラ</a>
          </form>
        </div>
 

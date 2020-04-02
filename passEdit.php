@@ -69,26 +69,6 @@ if(!empty($_POST)){
                 // クエリ成功の場合
                 if($stmt){
                     $_SESSION['msg_success'] = SUC01;
-
-                    // メールを送信
-                    $username = ($userData['username']) ? $userData['username'] : '名無し';
-                    $from = 'info@webukatu.com';
-                    $to = $userData['email'];
-                    $subject = 'パスワード変更通知｜movieee';
-                    // EOTはEndOfTextの略。ABCでもなんでもいい。先頭の<<<の後の文字列に合わせること。最後のEOTの前後に何も入れてはいけない。
-                    // EOT内の半角空白も全てそのまま半角空白として扱われるのでインデントはしないこと
-                    $comment = <<<EOT
-{$username}  さん
-パスワードが変更されました。
-
-/////////////////////////////////////////
-movieeeカスタマーセンター
-URL  http://movieee.com/
-E-mail  0244amarettomilk@gmail.com.com
-/////////////////////////////////////////
-EOT;
-                    sendMail($from, $to, $subject, $comment);
-
                     header("Location:mypage.php"); //マイページへ
                     exit();
                 }
