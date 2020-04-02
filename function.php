@@ -754,27 +754,6 @@ function getFavorite($p_id){
     }
 }
 
-
-//========================================
-// メール送信
-//========================================
-function sendMail($from, $to, $subject, $comment){
-    if(!empty($to) && !empty($subject) && !empty($comment)){
-        // 文字化けしないように設定（お決まりパターン）
-        mb_language("japanese"); //現在使っている言語を設定する
-        mb_internal_encoding("UTF-8"); //内部の日本語をどうエンコーディング（機械が分かる言葉へ変換）するか設定
-
-        // メールを送信（送信結果はtrueかfalseでかえってくる）
-        $result = mb_send_mail($to, $subject, $comment, "From: ".$from);
-        // 送信結果を判定
-        if ($result) {
-            debug('メールを送信しました。');
-        } else {
-            debug('【エラー発生】メールの送信に失敗しました。');
-        }
-
-    }
-}
 //============================
 // その他
 //============================
@@ -825,6 +804,7 @@ function getSessionFlash($key){
         return $data;
     }
 }
+
 // 認証キー作成
 function makeRandKey($length = 8) {
     static $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -937,7 +917,7 @@ function pagination($currentPageNum, $totalPageNum, $link = '', $pageColNum = 5)
       echo '</ul>';
     echo '</div>';
 }
-// 画面表示用関数
+// 画面表示用関数(no-imgの時)
 function showImg($path){
     if(empty($path)){
         return 'img/sample-img.png';
