@@ -1,7 +1,10 @@
 # movieee
 
 映画を投稿したりレビューするWebアプリ。
-movieeeへのリンクは[こちらから](https://movieeeee.herokuapp.com/)
+movieeeへのリンクは[こちらから](https://movieeeee.herokuapp.com/)  
+
+<img width="984" alt="movieee" src="https://user-images.githubusercontent.com/62840658/79933926-508e1c80-848c-11ea-80d1-40bac1d0f71f.png">  
+
 
 ### 説明文
 
